@@ -1,3 +1,8 @@
+import scrapy
+class BricketSpider(scrapy.Spider):
+    name="brickset_spider"
+    start_urls = ['http://brickset.com/sets/year-2016']
+
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
@@ -10,5 +15,7 @@ uClient.close()
 
 page_soup = soup(page_html, "html.parser")
 print(page_soup)
+
+
 
 
