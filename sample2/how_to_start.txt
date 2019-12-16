@@ -1,0 +1,4 @@
+source my_env/bin/activate 
+deactivate to stop
+
+scrapy runspider scraper.py to run
