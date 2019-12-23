@@ -4,8 +4,13 @@ import scrapy
 
 class Popular_Songs(scrapy.Spider):
     name = 'reviews'
-    start_urls = ['https://www.amazon.com/CuteKing-Weighted-Blanket-Individual-Weighing/product-reviews/B07GQZ4ZZ1/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews']
-
+    # start_urls = ['https://www.amazon.com/CuteKing-Weighted-Blanket-Individual-Weighing/product-reviews/B07GQZ4ZZ1/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews']
+    def start_requests(self):
+        the_url = "http://quotes.toscrape.com/"
+        url = getattr(self, 'url', None)
+        if url is not None:
+            the_url = url
+        yield scrapy.Request(url, self.parse)
     def parse(self, response):
         for review in response.xpath('//div[@data-hook="review"]'):
             yield {
