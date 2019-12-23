@@ -1,4 +1,4 @@
 source my_env/bin/activate 
 deactivate to stop
 
-scrapy runspider scraper.py to run
+scrapy crawl <name of spider> -o <name of json file></name>
